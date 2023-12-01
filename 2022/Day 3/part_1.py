@@ -10,7 +10,6 @@ priority = 0
 for line in lines:
     length = len(line)
     l = int(length/2)
-    # priority += priorities.index((
     first_half = set(line[:l])
     second_half = set(line[-l:])
     priority += priorities.index(str(first_half.intersection(second_half))[2])
