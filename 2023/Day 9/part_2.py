@@ -15,20 +15,16 @@ for line in lines:
     line = line.strip('\n').split(' ')
     for num in line:
         nums.append(int(num))
-    
+    nums = nums[::-1]
     check_nums = nums
-    num_lists.append(nums[0])
+    num_lists.append(nums[-1])
     while not is_all_zeros(check_nums):
         check_nums = []
         for i in range(len(nums)-1):
             check_nums.append(nums[i+1]-nums[i])
-        num_lists.append(check_nums[0])
+        num_lists.append(check_nums[-1])
         nums = check_nums
-    for i in range(len(num_lists)):
-        if i%2 == 0:
-            total += num_lists[i]
-        else:
-            total -= num_lists[i]
+    total += num_lists[0] + sum(num_lists[1:])
     num_lists = []
 print(total)
 
